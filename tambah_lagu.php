@@ -48,6 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <textarea class="form-control" name="lirik" rows="5" required></textarea>
             </div>
             <button type="submit" class="btn btn-success w-100">Tambah Lagu</button>
+            <a href="admin_dashboard.php" class="btn btn-secondary w-100">Kembali ke Dashboard</a>
         </form>
     </div>
 </body>

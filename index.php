@@ -5,42 +5,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bank Lagu</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        .navbar-custom {
-            background-color: #1236a4;
-        }
-        .navbar-brand, .nav-link {
-            color: #fff !important;
-        }
-        .btn-login {
-            background-color: #ed2025;
-            border: none;
-            color: #fff;
-        }
-    </style>
+   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-custom">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="index.php">Bank Lagu</a>
-            <div class="collapse navbar-collapse">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="index.php">Home</a>
-                    </li>
-                </ul>
-                <a href="admin_login.php" class="btn btn-login">Login</a>
-            </div>
+<nav class="navbar navbar-expand-lg bg-primary navbar-dark">
+    <div class="container">
+        <a class="navbar-brand" href="index.php">Bank Lagu</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    
+                </li>
+            </ul>
+            <a href="admin_login.php" class="btn btn-danger">Login</a>
         </div>
-    </nav>
-    <div class="container mt-4">
-        <h1>Daftar Lagu</h1>
+    </div>
+</nav>
+
+    <div class="hero">
+        <div class="container">
+        <h1>Selamat Datang di Bank Lagu</h1>
+        <p>Temukan dan nikmati berbagai lirik serta nada dasar lagu favorit Anda.</p>
         <form method="GET" action="index.php" class="mb-3">
             <div class="input-group">
                 <input type="text" class="form-control" name="cari" placeholder="Cari lagu...">
                 <button type="submit" class="btn btn-primary">Cari</button>
             </div>
         </form>
+        </div>
+        
+    </div>
+
+    <div class="container mt-4">
+        
         <?php
         include 'koneksi.php';
         $cari = isset($_GET['cari']) ? $_GET['cari'] : '';
