@@ -20,15 +20,16 @@ if (isset($_GET['id'])) {
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $id = $_POST['id'];
-    $judul = $_POST['judul'];
-    $nada_dasar = $_POST['nada_dasar'];
-    $lirik = $_POST['lirik'];
+    $judul = mysqli_real_escape_string($conn, $_POST['judul']);
+    $nada_dasar = mysqli_real_escape_string($conn, $_POST['nada_dasar']);
+    $penyanyi = mysqli_real_escape_string($conn, $_POST['penyanyi']);
+    $lirik = mysqli_real_escape_string($conn, str_replace(array("\r\n", "\r", "\n"), "\n", $_POST['lirik']));
 
-    $query = "UPDATE lagu SET judul='$judul', nada_dasar='$nada_dasar', lirik='$lirik' WHERE id='$id'";
+    $query = "UPDATE lagu SET judul='$judul', nada_dasar='$nada_dasar', penyanyi='$penyanyi', lirik='$lirik' WHERE id='$id'";
 
     if (mysqli_query($conn, $query)) {
-        $lagu = ['id' => $id, 'judul' => $judul, 'nada_dasar' => $nada_dasar, 'lirik' => $lirik];
         echo "<div class='alert alert-success'>Lagu berhasil diubah!</div>";
+        echo "<script>setTimeout(function(){ window.location.href = 'admin_dashboard.php'; }, 2000);</script>";
     } else {
         echo "<div class='alert alert-danger'>Gagal mengubah lagu: " . mysqli_error($conn) . "</div>";
     }
@@ -57,8 +58,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <input type="text" class="form-control" name="nada_dasar" value="<?php echo htmlspecialchars($lagu['nada_dasar']); ?>" required>
             </div>
             <div class="mb-3">
+                <label class="form-label">Penyanyi</label>
+                <input type="text" class="form-control" name="penyanyi" value="<?php echo htmlspecialchars($lagu['penyanyi']); ?>" required>
+            </div>
+            <div class="mb-3">
                 <label class="form-label">Lirik</label>
-                <textarea class="form-control" name="lirik" rows="5" required><?php echo htmlspecialchars($lagu['lirik']); ?></textarea>
+                <textarea class="form-control" name="lirik" rows="5" required><?php echo $lagu['lirik']; ?></textarea>
             </div>
             <button type="submit" class="btn btn-primary w-100 mb-2">Simpan Perubahan</button>
             <a href="admin_dashboard.php" class="btn btn-secondary w-100">Kembali ke Dashboard</a>

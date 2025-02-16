@@ -5,6 +5,10 @@
   background-color: #0d6efd !important;
   padding: 15px 0;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  position: -webkit-sticky; /* For Safari */
+  position: sticky; /* Standard syntax */
+  top: 0; /* Ensure navbar stays at the top */
+  z-index: 1000; /* To ensure it's above other content */
 }
 
 .navbar-brand {
@@ -125,4 +129,24 @@
 
 .input-group .btn-primary:hover {
   background-color: #e0a800;
+}
+.card {
+  border-radius: 15px;
+  transition: transform 0.3s;
+}
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+.card-body {
+  text-align: center;
+}
+footer {
+  background-color: #343a40;
+  color: white;
+  text-align: center;
+  padding: 20px 0;
+  position: relative;
+  bottom: 0;
+  width: 100%;
 }

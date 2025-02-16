@@ -9,11 +9,12 @@ if (!isset($_SESSION['admin'])) {
 include 'koneksi.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $judul = $_POST['judul'];
-    $nada_dasar = $_POST['nada_dasar'];
-    $lirik = $_POST['lirik'];
+    $judul = mysqli_real_escape_string($conn, $_POST['judul']);
+    $nada_dasar = mysqli_real_escape_string($conn, $_POST['nada_dasar']);
+    $penyanyi = mysqli_real_escape_string($conn, $_POST['penyanyi']);
+    $lirik = mysqli_real_escape_string($conn, $_POST['lirik']);
 
-    $query = "INSERT INTO lagu (judul, nada_dasar, lirik) VALUES ('$judul', '$nada_dasar', '$lirik')";
+    $query = "INSERT INTO lagu (judul, nada_dasar,penyanyi, lirik) VALUES ('$judul', '$nada_dasar','$penyanyi','$lirik')";
 
     if (mysqli_query($conn, $query)) {
         echo "<div class='alert alert-success'>Lagu berhasil ditambahkan!</div>";
@@ -21,6 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         echo "<div class='alert alert-danger'>Gagal menambahkan lagu: " . mysqli_error($conn) . "</div>";
     }
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -38,6 +40,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <div class="mb-3">
                 <label class="form-label">Judul Lagu</label>
                 <input type="text" class="form-control" name="judul" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Penyanyi</label>
+                <input type="text" class="form-control" name="penyanyi" required>
             </div>
             <div class="mb-3">
                 <label class="form-label">Nada Dasar</label>

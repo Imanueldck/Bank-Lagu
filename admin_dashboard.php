@@ -60,12 +60,12 @@ $result = mysqli_query($conn, $query);
     </div>
 </nav>
     <div class="container mt-4">
-        
         <a href="tambah_lagu.php" class="btn btn-success mb-3">Tambah Lagu</a>
         <table class="table table-striped">
     <thead>
         <tr>
             <th>Judul</th>
+            <th>Penyanyi</th>
             <th>Nada Dasar</th>
             <th>Aksi</th>
         </tr>
@@ -74,6 +74,7 @@ $result = mysqli_query($conn, $query);
         <?php while ($row = mysqli_fetch_assoc($result)) { ?>
         <tr>
             <td><?php echo $row['judul']; ?></td>
+            <td><?php echo $row['penyanyi']; ?></td>
             <td><?php echo $row['nada_dasar']; ?></td>
             <td>
                 <a href="edit_lagu.php?id=<?php echo $row['id']; ?>" class="btn btn-primary btn-sm">Edit</a>
