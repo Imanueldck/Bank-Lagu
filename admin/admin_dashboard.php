@@ -52,7 +52,7 @@ $result = mysqli_query($conn, $query);
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav me-auto">
                 <li class="nav-item">
-                    
+                    <a class="nav-link" href="../index.php">Home</a>
                 </li>
             </ul>
             <form method="POST" class="mb-3">
