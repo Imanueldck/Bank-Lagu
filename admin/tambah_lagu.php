@@ -7,6 +7,7 @@ if (!isset($_SESSION['admin'])) {
 }
 
 include 'koneksi.php';
+$alert = ""; // Variabel untuk menyimpan pesan alert
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $judul = mysqli_real_escape_string($conn, $_POST['judul']);
@@ -14,15 +15,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $penyanyi = mysqli_real_escape_string($conn, $_POST['penyanyi']);
     $lirik = mysqli_real_escape_string($conn, $_POST['lirik']);
 
-    $query = "INSERT INTO lagu (judul, nada_dasar,penyanyi, lirik) VALUES ('$judul', '$nada_dasar','$penyanyi','$lirik')";
+    $query = "INSERT INTO lagu (judul, nada_dasar, penyanyi, lirik) VALUES ('$judul', '$nada_dasar', '$penyanyi', '$lirik')";
 
     if (mysqli_query($conn, $query)) {
-        echo "<div class='alert alert-success'>Lagu berhasil ditambahkan!</div>";
+        $alert = "<div class='alert alert-success text-center'>Lagu berhasil ditambahkan!</div>";
     } else {
-        echo "<div class='alert alert-danger'>Gagal menambahkan lagu: " . mysqli_error($conn) . "</div>";
+        $alert = "<div class='alert alert-danger text-center'>Gagal menambahkan lagu: " . mysqli_error($conn) . "</div>";
     }
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -32,10 +32,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tambah Lagu</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="tambah.css">
 </head>
 <body class="d-flex justify-content-center align-items-center vh-100 bg-light">
-    <div class="card p-4 shadow-lg w-50">
-        <h3 class="text-center mb-4">Tambah Lagu</h3>
+    <div class="card p-4 shadow-lg w-100" style="max-width: 500px;">
+        <h3 class="text-center mb-3">Tambah Lagu</h3>
+
+        <!--  Alert  berada di dalam card -->
+        <?php if (!empty($alert)) echo "<div class='mb-3'>$alert</div>"; ?>
+
         <form method="POST">
             <div class="mb-3">
                 <label class="form-label">Judul Lagu</label>
@@ -54,7 +59,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <textarea class="form-control" name="lirik" rows="5" required></textarea>
             </div>
             <button type="submit" class="btn btn-success w-100">Tambah Lagu</button>
-            <a href="admin_dashboard.php" class="btn btn-secondary w-100">Kembali ke Dashboard</a>
+            <a href="admin_dashboard.php" class="btn btn-secondary w-100 mt-2">Kembali ke Dashboard</a>
         </form>
     </div>
 </body>

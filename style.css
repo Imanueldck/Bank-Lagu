@@ -2,7 +2,7 @@
 
 /* Navbar Styling */
 .navbar {
-  background-color: #0d6efd !important;
+  background-color: #0e2d5c !important;
   padding: 15px 0;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   position: -webkit-sticky; /* For Safari */
@@ -51,9 +51,7 @@
 
 /* Hero Section */
 .hero {
-  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("hero-image.jpg");
-  background-size: cover;
-  background-position: center;
+  background: linear-gradient(135deg, #4c609c, #1c388d, #0e2d8d);
   height: 450px;
   display: flex;
   align-items: center;
@@ -68,6 +66,9 @@
   font-size: 3.5rem;
   font-weight: bold;
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+.hero h1 span {
+  color: #ffd700 !important;
 }
 
 .hero p {
@@ -118,7 +119,7 @@
 }
 
 .input-group .btn-primary {
-  background-color: #1533ab;
+  background-color: #e0a800;
   border: none;
   color: #fff;
   font-weight: bold;
@@ -128,25 +129,92 @@
 }
 
 .input-group .btn-primary:hover {
-  background-color: #e0a800;
+  background-color: #2f4fce;
 }
-.card {
-  border-radius: 15px;
-  transition: transform 0.3s;
+/* Card */
+.custom-card {
+  border: 2px solid #1236a4; /* Warna border yang berbeda */
+  border-radius: 10px; /* Memberikan sudut yang lebih bulat */
+  background-color: #f8f9fa; /* Memberikan latar belakang lebih terang */
+  transition: transform 0.3s ease-in-out; /* Efek transisi saat hover */
 }
-.card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+
+.custom-card .card-body {
+  padding: 20px; /* Menambah padding di dalam card */
 }
-.card-body {
-  text-align: center;
+
+.custom-card:hover {
+  transform: translateY(-5px); /* Efek angkat saat hover */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Efek bayangan lebih kuat saat hover */
 }
+
+.custom-card .card-title {
+  font-size: 1.25rem; /* Mengatur ukuran font judul */
+  color: #1236a4; /* Menyesuaikan warna teks judul */
+}
+
+.custom-card .card-subtitle {
+  font-size: 1rem; /* Ukuran font untuk subtitle */
+  color: #6c757d; /* Warna teks subtitle */
+}
+
+.custom-card .card-text {
+  font-size: 1rem; /* Ukuran font untuk teks lainnya */
+  color: #333; /* Warna teks utama */
+}
+
+.custom-card .btn-primary {
+  background-color: #1236a4; /* Warna tombol */
+  border-color: #1236a4; /* Warna border tombol */
+}
+
+.custom-card .btn-primary:hover {
+  background-color: #0e2a6f; /* Warna tombol saat hover */
+  border-color: #0e2a6f; /* Warna border tombol saat hover */
+}
+
+/* Footer CSS */
 footer {
-  background-color: #343a40;
+  background-color: #0e2d5c;
   color: white;
-  text-align: center;
   padding: 20px 0;
   position: relative;
   bottom: 0;
   width: 100%;
+}
+footer h3 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+footer p {
+  font-size: 1rem;
+  font-style: italic;
+  margin-bottom: 8px;
+}
+
+footer a {
+  font-size: 1rem;
+  text-decoration: none;
+}
+footer a:hover {
+  color: #ffd700;
+}
+footer .copyright {
+  color: #f9f9f9;
+  font-size: 0.9rem;
+  font-style: normal;
+  font-weight: bolder;
+}
+/* Media query for mobile devices */
+@media (max-width: 767px) {
+  footer h3 {
+    font-size: 1.5rem;
+  }
+  footer p {
+    font-size: 0.7rem;
+  }
+  footer .copyright {
+    font-size: 0.8rem;
+  }
 }

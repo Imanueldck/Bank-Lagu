@@ -1,0 +1,100 @@
+/* Navbar Styling */
+.navbar {
+  background-color: #0e2d5c !important;
+  padding: 15px 0;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  position: -webkit-sticky; /* For Safari */
+  position: sticky; /* Standard syntax */
+  top: 0; /* Ensure navbar stays at the top */
+  z-index: 1000; /* To ensure it's above other content */
+}
+
+.navbar-brand {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #fff !important;
+}
+
+.navbar-toggler {
+  border: none;
+}
+
+.navbar-toggler:focus {
+  box-shadow: none;
+}
+
+.navbar-nav .nav-link {
+  color: #fff !important;
+  font-size: 1.1rem;
+  margin-right: 15px;
+  transition: 0.3s;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #ffcc00 !important;
+}
+
+.btn-danger {
+  background-color: #dc3545;
+  border: none;
+  padding: 8px 15px;
+  font-weight: bold;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+
+.btn-danger:hover {
+  background-color: #b02a37;
+}
+.container-custom {
+  margin-top: 20px;
+}
+
+.table-custom {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+}
+
+.table th,
+.table td {
+  vertical-align: middle;
+}
+
+.table th {
+  background-color: #1236a4;
+  color: white;
+  text-align: center;
+}
+
+.table td {
+  text-align: center;
+  font-size: 1rem;
+}
+
+.table-custom .btn {
+  margin: 5px;
+}
+
+.btn-custom-add {
+  background-color: #28a745;
+  color: white;
+  font-size: 1rem;
+  padding: 10px 15px;
+  border-radius: 5px;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+.btn-custom-add:hover {
+  background-color: #218838;
+}
+
+.table-custom td button {
+  transition: transform 0.2s ease;
+}
+
+.table-custom td button:hover {
+  transform: scale(1.1);
+}
